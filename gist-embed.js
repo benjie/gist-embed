@@ -32,8 +32,8 @@ $(function(){
     //get the numeric id from the id attribute of the element holder
     id = id.substr(0, gistMarkerId.length) === gistMarkerId ? id.replace(gistMarkerId, '') : null;
 
-    //make sure result is a numeric id
-    if(!isNaN(parseInt(id, 10))){
+    //make sure result is a valid gist id
+    if(id.match(/^[0-9a-f]+$/)){
       url = baseurl + '/' + id + '.json';
       //loading
       $elem.html('Loading gist ' + url + (data.file ? ', file: ' + data.file : '') + '...');
